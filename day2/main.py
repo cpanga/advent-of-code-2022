@@ -3,27 +3,26 @@ from collections import namedtuple
 
 def main():
 
-    # Part 1
-    part1 = readfile("input.txt")
+    # Create list of tuples for each hand of the RPS game
+    lines = readfile("./day2/input.txt")
     pairslist = []
-    for line in part1:
+    for line in lines:
         pairslist.append(tuple(line.split(" ")))
 
-    #print(pairslist)
-
+    # Initialise empty counters for each part
     scoreAggr = 0
     scoreAggr2 = 0
 
+    # For each hand in the game, score according to the scoring rules
     for item in pairslist:
-        print(item)
+        #print(item)
         if item[0] != '':
            scoreAggr += score(item)
            scoreAggr2 += scorept2(item)
     print(f"part 1 answer is {scoreAggr} ")
     print(f"part 2 answer is {scoreAggr2} ")
 
-    # Part 2
-
+# Scoring rules for pt2
 def scorept2(hand: tuple):
     score = 0
     if hand[1] == 'X':
@@ -51,8 +50,7 @@ def scorept2(hand: tuple):
             score +=1
     return score
 
-
-
+# Scoring rules for pt1
 def score(hand: tuple):
     score = 0
     if hand[1] == 'X':
@@ -74,11 +72,11 @@ def score(hand: tuple):
 
     return score
 
-    
+
+# Read input, and split by lines
 def readfile(file : str ):
     f = open(f"./{file}", "r")
     return f.read().split("\n")
 
 if __name__ == "__main__":
-    
     main()
