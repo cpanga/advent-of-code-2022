@@ -12,8 +12,6 @@ def main():
         rangeA = list(range(int(rangeTot[0][0]),int(rangeTot[0][1])+1))
         rangeB = list(range(int(rangeTot[1][0]),int(rangeTot[1][1])+1))
         
-        print(rangeA)
-        print(rangeB)
         # Check if rangeA is contained in rangeB
         dupesA = 0
         for num in rangeA:
@@ -33,8 +31,8 @@ def main():
         if dupesA > 0 or dupesB > 0:
             anyDupes +=1
 
-    print(totalDupes)
-    print(anyDupes)
+    print(f"Part 1 answer: {totalDupes}")
+    print(f"Part 2 answer: {anyDupes}")
 
 def acquireRange(line: str):
     split = line.split(',')
